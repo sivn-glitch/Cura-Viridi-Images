@@ -19,7 +19,10 @@ def get_ph_level():
         buf.append(ads_channel.voltage)
     buf.sort() # Sort samples and discard highest and lowest
     buf = buf[2:-2]
-    ph_level = (sum(map(float,buf))/6) # Get average value from remaining 6
+    v_level = (sum(map(float,buf))/6) # Get average value from remaining 6
+    m = -4
+    b = 17.34
+    ph_level = (m*v_level) + b
     
  
     return ph_level
